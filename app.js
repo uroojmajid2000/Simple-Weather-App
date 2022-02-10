@@ -7,7 +7,6 @@ var min = document.querySelector(".min");
 var desc = document.querySelector(".desc");
 var clouds = document.querySelector(".clouds");
 var button = document.querySelector(".search");
-
 var current = document.querySelector(".currentLocation");
 
 button.addEventListener("click", function (name) {
@@ -25,7 +24,6 @@ button.addEventListener("click", function (name) {
       var nameValue = data["name"];
       var descValue = data["weather"][0]["description"];
       var cloudValue = data["weather"][0]["icon"];
-
       main.innerHTML = nameValue;
       desc.innerHTML = descValue;
       temp.innerHTML = "Temp: " + tempValue + "°C";
@@ -51,7 +49,7 @@ current.addEventListener("click", function (name) {
 });
 
 function showPosition(position) {
-  let url = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=50a7aa80fa492fa92e874d23ad061374&units=metric`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=50a7aa80fa492fa92e874d23ad061374&units=metric`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
